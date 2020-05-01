@@ -8,22 +8,17 @@ import Footer from './Footer'
 
 function HomePage() {
     return (
-        
             <body className="App">
                 <section id="main-container">
                     <Header />
                     <main>
                         <section id="product-list" className="">
                               <ProductTile />
-                              
                         </section>
                     </main>
                     <Footer />
-                   
-                   
                 </section>  
             </body>
-        
     )
 }
 

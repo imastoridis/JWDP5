@@ -1,30 +1,85 @@
-import React, {useState} from 'react'
+import React from 'react'
+
 
 class ProductTile extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+          error: null,
+          isLoaded: false,
+          users: []
+        };
+      }
+    
+      componentDidMount() {
+        fetch("https://jsonplaceholder.typicode.com/users")
+          .then(res => res.json())
+          .then(
+            (result) => {
+              this.setState({
+                isLoaded: true,
+                users: result.users
+              });
+            },
+
+            (error) => {
+              this.setState({
+                isLoaded: true,
+                error
+              });
+            }
+          )
+      }
+    
+      render() {
+        const { error, isLoaded, users } = this.state;
+        if (error) {
+          return <div>Error: {error.message}</div>;
+        } else if (!isLoaded) {
+          return <div>Loading...</div>;
+        } else {
+          return (
+            <ul>
+              {users && users.map(user => (
+                <li key={user.id}>
+                  Users : {user.name} {user.username}
+                </li>
+              ))}
+            </ul>
+          );
+        }
+      }
+    }
+
+export default ProductTile 
+
+
+
+{/*
+class ProductTile extends React.Component {
+    constructor(){
     state = {
         isloading: true,
         items : [],
-        error:null
+        
     };
-
-    async componentDidMount() {
+    }
+     componentDidMount() {
         const apiURL = 'https://www.anapioficeandfire.com/api/books?pageSize=30';
-        const response = await fetch(apiURL)
-        const data = await response.json();
+        const response =  fetch(apiURL)
+        const data =  response.json();
         console.log(data)
     }
 
     render() {
         const { isLoading, items, error } = this.state;
         return (
-          <React.Fragment>
-            <h1>Random User</h1>
-            
-            {error ? <p>{error.message}</p> : null}
+        <div>
+            <h1>Meubles en chêne</h1>
            
             {!isLoading ? (
-              users.map(user => {
-                const { username, name, email } = user;
+              items.map(item => {
+                const { numberOfPages, name, country } = item;
                 return (
                   <div key={index}>
                      <p>Produit : {item.name}</p>
@@ -38,44 +93,13 @@ class ProductTile extends React.Component {
             ) : (
               <h3>Loading...</h3>
             )}
-          </React.Fragment>
+        </div>
         );
       }
     }
-export default ProductTile
-    /*
-    return (
-        <div className="App">
-            <h1>Meubles en chêne</h1>
+export default ProductTile */
     
-       
-            <div>
-                <button className="fetch-button" onClick={fetchBooks}>Fetch Data</button>
-            <br />
-            </div>
-
-        
-            <div >
-            {items &&
-                items.map((item, index) => {
-    
-                return (
-                    <div className="product" key={index}>
-                        <div className="product__specs">
-                            <p>Vernis : {item._id}</p>
-                            <p>Produit : {item.name}</p>
-                            <p>Prix : {item.numberOfPages}</p>
-                            <p>Description : {item.country}</p>  
-                        </div>
-                    </div>
-                    );
-                })
-            }
-            </div>
-        </div>
-    );
-}
-
+/***Attempt 2
 class ProductTile extends React.Component {
     
     constructor(props) {
@@ -119,5 +143,5 @@ class ProductTile extends React.Component {
         }
         
     }
-}   */     
+}   */  }   
 

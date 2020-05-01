@@ -4,7 +4,7 @@ import {Route, Switch} from 'react-router-dom'
 //import { ProductPage, HomePage, ConfirmationPage } from '../../js/components';
 import HomePage from './HomePage';
 import ProductPage from '../../js/components/ProductPage';
-import Form from './Form'
+
 
 function Main() {
   return (
@@ -23,3 +23,4 @@ function Main() {
 }
 
 export default Main;
+
