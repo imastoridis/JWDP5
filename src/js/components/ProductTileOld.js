@@ -3,6 +3,7 @@ import React from 'react'
 import productData from './ProductData'
 //import img from "../../../images/oak_1.jpg"
 import ProductButton from './ProductButton'
+import ProductiTileTest from './ProductTileTest'
 
 
 function ProductItemPropss(props) {
@@ -15,6 +16,7 @@ function ProductItemPropss(props) {
                     <p>Prix : {props.price}</p>
                     <p>Description : {props.description}</p>
                     {/*<ProductButton/>*/}
+                    <ProductiTileTest/>
                     
             </div>  
             <div className="product__specs">     

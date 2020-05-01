@@ -11,11 +11,9 @@ import '../src/index.css';
 //import {ProductProvider} from "./js/components/componentExports"
 
 
-ReactDOM.render(
-        <Main />,
-    document.getElementById('container')
+ReactDOM.render(<Main />,document.getElementById('container')
   );
-/*
+{/*
 ReactDOM.render(
   
   <React.StrictMode>
@@ -26,4 +24,4 @@ ReactDOM.render(
   </React.StrictMode>
   ,
   document.getElementById('container')
-);*/
+);*/}

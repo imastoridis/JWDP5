@@ -1,9 +1,9 @@
 import React from 'react';
 //import { ProductSpecs, Header, Footer } from '../components';
 import Header from './Header'
-import ProductSpecs from './ProductSpecs'
+import ProductTile from './ProductTile'
 import Footer from './Footer'
-//import FeaturedRooms from './FeaturedRooms'
+
 
 
 function HomePage() {
@@ -14,11 +14,12 @@ function HomePage() {
                     <Header />
                     <main>
                         <section id="product-list" className="">
-                              <ProductSpecs />
+                              <ProductTile />
+                              
                         </section>
                     </main>
                     <Footer />
-                    {/*<FeaturedRooms />*/}
+                   
                    
                 </section>  
             </body>
